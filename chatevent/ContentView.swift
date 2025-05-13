@@ -1,24 +1,37 @@
-//
-//  ContentView.swift
-//  chatevent
-//
-//  Created by Joshua Hodgson on 5/13/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            HomeView() // Updated HomeView with categories
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+            
+            SearchView() // Placeholder for now
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
+            
+            NotificationsView() // Placeholder for now
+                .tabItem {
+                    Image(systemName: "bell.fill")
+                    Text("Notifications")
+                }
+            
+            ProfileView() // Placeholder for now
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("Profile")
+                }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

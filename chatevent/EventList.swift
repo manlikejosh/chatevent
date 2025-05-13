@@ -2,6 +2,7 @@ import SwiftUI
 
 struct EventList: View {
     @StateObject private var api = TicketMasterManager()
+
     var body: some View {
         NavigationView {
             List(api.events, id: \.name) { event in
@@ -12,9 +13,9 @@ struct EventList: View {
                         .font(.subheadline)
                 }
             }
-            .navigationTitle("Dallas Sports Events")
+            .navigationTitle("Dallas Events")
             .onAppear {
-                api.fetchDallasSportsEvents()
+                api.fetchDallasEvents(classification: "music")
             }
         }
     }

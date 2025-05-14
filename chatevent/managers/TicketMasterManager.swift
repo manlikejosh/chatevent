@@ -15,13 +15,11 @@ class TicketMasterManager: ObservableObject {
 
         // Build the URL string with optional startDate and endDate
         var urlString = """
-        https://app.ticketmaster.com/discovery/v2/events.json?apikey=\(apiKey)&city=\(city)&classificationName=\(classification)&latlong=\(latLon)&radius=\(radius)&unit=\(unit)&sort=date,asc
+        https://app.ticketmaster.com/discovery/v2/events.json?apikey=\(apiKey)&city=\(city)&classificationName=\(classification)&latlong=\(latLon)&radius=\(radius)&unit=\(unit)
         """
 
         // Add date filters if needed
 //        urlString += "&startDateTime=\(startDate)&endDateTime=\(endDate)"
-        
-//        urlString += "&sort=date,asc"
 
         // Create the URL
         guard let url = URL(string: urlString) else { return }

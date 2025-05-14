@@ -60,11 +60,4 @@ struct EventImages: Codable {
         self.height = try values.decode(Int.self, forKey: .height)
         self.fallback = try values.decode(Bool.self, forKey: .fallback)
     }
-    
-    init(ratio: Double?, url: String, width: Int, height: Int, fallback: Bool) {
-        self.ratio = ratio
-        self.url = url
-        self.width = width
-        self.height = height
-        self.fallback = fallback}
 }

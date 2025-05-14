@@ -3,7 +3,7 @@ import SwiftUI
 // MARK: - EventDetailView
 
 struct EventDetailView: View {
-    let event: Event  // Assumes your Event model is defined in Event.swift
+    let event: TicketEvent  // Assumes your Event model is defined in Event.swift
 
     // Define an enum for the available subviews (tabs)
     enum DetailTab: String, CaseIterable {
@@ -19,10 +19,10 @@ struct EventDetailView: View {
         VStack(alignment: .leading) {
             // MARK: - Top Section: Event Basic Info & Venue
             VStack(alignment: .leading, spacing: 8) {
-                Text(event.title)
+                Text(event.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                Text("Start Time: \(event.time)")
+                Text("Start Time: \(event.dates.start.localTime)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 Text("Live Score: Team A 78 - Team B 83")
@@ -329,17 +329,7 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 // MARK: - Preview
 
-struct EventDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        // Create a sample Event for preview purposes.
-        let sampleEvent = Event(
-            id: UUID(),
-            banner: "sample_banner",  // Adjust if your Event model uses this property
-            title: "Test Event",
-            time: "7:00 PM"
-        )
-        NavigationView {
-            EventDetailView(event: sampleEvent)
-        }
-    }
+
+#Preview {
+    EventDetailView(event: FakeEventTicket().SportEvent)
 }
